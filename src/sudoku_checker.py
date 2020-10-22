@@ -4,6 +4,7 @@ import numpy as np
 class SudokuChecker(object):
     def __init__(self, data):
         self.N = len(data)
+        self.root_N = int(np.sqrt(self.N))
         self.data = data
 
     def is_valid(self):
@@ -27,13 +28,15 @@ class SudokuChecker(object):
         return all(sum([row[col] for row in self.data]) == sum(range(self.N + 1)) for col in range(self.N))
 
     def has_valid_squares(self):
-        root_N = int(np.sqrt(self.N))
         valid_squares = []
-        for n1 in range(0, self.N, root_N):
-            for n2 in range(0, self.N, root_N):
-                valid_squares.append(sum([self.data[y][x] for x in range(n1 + 0, n1 + root_N) for y in
-                                          range(n2 + 0, n2 + root_N)]) == sum(range(self.N + 1)))
+        for square_row_idx in range(0, self.N, self.root_N):
+            for square_col_idx in range(0, self.N, self.root_N):
+                valid_squares.append(self.is_valid_square(square_row_idx, square_col_idx))
         return all(valid_squares)
+
+    def is_valid_square(self, square_row_idx, square_col_idx):
+        return sum([self.data[x][y] for x in range(square_row_idx, square_row_idx + self.root_N) for y in
+                    range(square_col_idx, square_col_idx + self.root_N)]) == sum(range(self.N + 1))
 
 
 

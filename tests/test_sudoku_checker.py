@@ -1,4 +1,6 @@
 from src.sudoku_checker import SudokuChecker
+# TODO: define test sudokus at the beginning
+# TODO: more test sudokus
 
 
 def test_has_valid_types():
