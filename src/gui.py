@@ -9,27 +9,6 @@ from kivy.uix.popup import Popup
 from src.sudoku_checker import SudokuChecker
 
 
-unfinished_sudoku_1 = [
-    [1, 4, 0, 3],
-    [3, 2, 4, 1],
-
-    [4, 1, 3, 2],
-    [2, 0, 1, 4]
-]
-
-unfinished_sudoku_2 = [
-    [5, 8, 6, 0, 3, 1, 0, 7, 0],
-    [2, 0, 7, 8, 6, 0, 5, 1, 3],
-    [0, 1, 0, 7, 0, 5, 2, 0, 6],
-    [0, 2, 8, 0, 0, 4, 3, 6, 1],
-    [6, 0, 4, 9, 1, 3, 7, 2, 0],
-    [0, 3, 1, 6, 2, 0, 0, 9, 5],
-    [4, 0, 5, 0, 8, 2, 0, 3, 7],
-    [1, 7, 0, 4, 9, 6, 8, 0, 2],
-    [0, 6, 2, 3, 5, 0, 1, 0, 9]
-]
-
-
 class SudokuGrid(GridLayout):
     def __init__(self, unfinished_sudoku, **kwargs):
         super().__init__(**kwargs)
@@ -103,7 +82,6 @@ class SudokuOperations(GridLayout):
         content.add_widget(closeButton)
 
         popupWindow = Popup(title="Result", content=content, size_hint=(.5, .5), pos_hint={'right': .75, 'top': 1})
-        print(content.width, content.height)
         popupWindow.open()
 
         closeButton.bind(on_press=popupWindow.dismiss)
