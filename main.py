@@ -8,6 +8,8 @@ from src.gui import SudokuApp
 # TODO: read sudoku from pic
 # TODO: create boxes around squares
 # TODO: add requirements and README
+# TODO: solve with pyomo
+# TODO: mark wrong fields in red?
 
 unfinished_sudoku_1 = [
     [5, 8, 6, 0, 3, 1, 0, 7, 0],

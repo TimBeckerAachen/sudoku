@@ -137,7 +137,7 @@ class InputCell(SudokuCell):
         self.on_text = self.foreground_color = (0, 0, 0, 1)
 
     def insert_text(self, substring, from_undo=False):
-        text = substring if (substring.isdigit() and 0 < int(substring) < self.dim) else ''
+        text = substring if (substring.isdigit() and 0 < int(substring) <= self.dim) else ''
         return super(SudokuCell, self).insert_text(text, from_undo=from_undo)
 
 
