@@ -1,8 +1,16 @@
 from src.sudoku_pyomo_solver import SudokuPyomo
 
 
-sudoku_2 = [
+unfinished_sudoku_3 = [
     [0, 4, 2, 3],
+    [3, 2, 4, 1],
+
+    [0, 1, 3, 2],
+    [2, 3, 0, 4]
+]
+
+finished_sudoku_3 = [
+    [1, 4, 2, 3],
     [3, 2, 4, 1],
 
     [4, 1, 3, 2],
@@ -58,13 +66,12 @@ finished_sudoku_2 = [
 ]
 
 
-
 def test_get_empty_sudoku():
     empty_sudoku = [[0, 0, 0, 0],
                     [0, 0, 0, 0],
                     [0, 0, 0, 0],
                     [0, 0, 0, 0]]
-    solver = SudokuPyomo(sudoku_2)
+    solver = SudokuPyomo(unfinished_sudoku_3)
     assert empty_sudoku == solver._get_empty_sudoku()
 
 
@@ -73,7 +80,7 @@ def test_get_solved_sudoku():
               [0, 0, 0, 4],
               [0, 0, 0, 0],
               [0, 0, 0, 0]]
-    solver = SudokuPyomo(sudoku_2)
+    solver = SudokuPyomo(unfinished_sudoku_3)
     solver.m.sudoku = DummyResult
     assert solver.get_solved_sudoku() == sudoku
 
@@ -95,6 +102,11 @@ def test_solve_pyomo_model():
     solver.construct_pyomo_model()
     solver.solve_pyomo_model()
     assert solver.get_solved_sudoku() == finished_sudoku_2
+
+    solver = SudokuPyomo(unfinished_sudoku_3)
+    solver.construct_pyomo_model()
+    solver.solve_pyomo_model()
+    assert solver.get_solved_sudoku() == finished_sudoku_3
 
 
 
