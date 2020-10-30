@@ -4,10 +4,13 @@ import numpy as np
 from pyomo.opt import SolverFactory
 
 
-# TODO: smarter obj fct?
+# TODO: smarter obj fct? yes!
 # TODO: how to see if there are several solutions?
-# TODO: tests
+#  https://github.com/Pyomo/pyomo/blob/master/examples/doc/pyomobook/attic/scripts/sudoku/sudoku.py integer cut
 # TODO: no strings?
+# TODO: clean Sets -> rename col, row, ...
+# TODO: fix instead of constrain
+# TODO: results might not be exactly 1
 
 
 class SudokuPyomo:
