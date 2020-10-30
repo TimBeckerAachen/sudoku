@@ -1,15 +1,7 @@
 from src.sudoku_solver import SudokuSolver
 from src.sudoku_checker import SudokuChecker
 from src.gui import SudokuApp
-# TODO: create a menu
-# TODO: create unfinished sudoku
-# TODO: timer
-# TODO: solver option
-# TODO: read sudoku from pic
-# TODO: create boxes around squares
-# TODO: add requirements and README
-# TODO: solve with pyomo
-# TODO: mark wrong fields in red?
+
 
 unfinished_sudoku_1 = [
     [5, 8, 6, 0, 3, 1, 0, 7, 0],
